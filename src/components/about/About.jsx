@@ -40,7 +40,7 @@ return (
 
        </div>
        <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem aspernatur laboriosam facilis fuga perferendis quam, a beatae voluptatibus exercitationem itaque culpa ex quo recusandae reprehenderit enim. Dicta impedit voluptas suscipit!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem aspernatur laboriosam facilis fuga perferendis quam, a beatae voluptatibus exercitationem itaque culpa ex quo recusandae reprehenderit enim!
        </p>
 
        <a href="#contact" className='btn btn-primary'>Let's Talk</a>
