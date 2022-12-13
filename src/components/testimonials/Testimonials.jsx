@@ -1,9 +1,43 @@
 import React from 'react'
 import './testimonials.css';
-import AVTR1 from '../../images/avatar1.jpg';
-import AVTR2 from '../../images/avatar2.jpg';
-import AVTR3 from '../../images/avatar3.jpg';
-import AVTR4 from '../../images/avatar4.jpg';
+import avt1 from '../../images/avatar1.jpg';
+import avt2 from '../../images/avatar2.jpg';
+import avt3 from '../../images/avatar3.jpg';
+import avt4 from '../../images/avatar4.jpg';
+
+import {  Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+
+const data = [
+
+  {
+    avatar: avt1,
+    name: "Tina Snow",
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit totam, necessitatibus dignissimos voluptatibus voluptatum aspernatur repellat excepturi corporis eius saepe molestias minima tenetur assumenda voluptates neque laudantium reprehenderit rerum consequatur?'
+  },
+  {
+    avatar: avt2,
+    name: "Tina Snow",
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit totam, necessitatibus dignissimos voluptatibus voluptatum aspernatur repellat excepturi corporis eius saepe molestias minima tenetur assumenda voluptates neque laudantium reprehenderit rerum consequatur?'
+  },
+  {
+    avatar: avt3,
+    name: "Tina Snow",
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit totam, necessitatibus dignissimos voluptatibus voluptatum aspernatur repellat excepturi corporis eius saepe molestias minima tenetur assumenda voluptates neque laudantium reprehenderit rerum consequatur?'
+  },
+  {
+    avatar: avt4,
+    name: "Tina Snow",
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit totam, necessitatibus dignissimos voluptatibus voluptatum aspernatur repellat excepturi corporis eius saepe molestias minima tenetur assumenda voluptates neque laudantium reprehenderit rerum consequatur?'
+  }
+]
+
+
 
 
 const Testimonials = () => {
@@ -12,50 +46,26 @@ const Testimonials = () => {
       <h5>Review from clients</h5>
       <h2>Testimonials</h2>
 
-      <div className="container testimonials_container">
-        
-        <article className='testimonial'>
-          <div className='client_avatar'>
-            <img src={AVTR1} alt="Avatar one" />
-            <h5 className='client_name'>Ernest Achiever</h5>
-            <small className='client_review'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem architecto fugit cumque harum maiores! Nesciunt molestiae ducimus non animi fugit iusto ratione eaque voluptatibus!
-            </small>
+      <Swiper className="container testimonials_container"
+      modules={[ Pagination]}
+      spaceBetween={40}
+      slidesPerView={1}
+      pagination={{ clickable: true }}>
+       {
+        data.map(({avatar, name, review}, index) => {
+         return (
+          <SwiperSlide key={index} className='testimonial'>
+         <div className='client_avatar'>
+            <img src={avatar}  />
           </div>
-        </article>
-
-        <article className='testimonial'>
-          <div className='client_avatar'>
-            <img src={AVTR2} alt="Avatar one" />
-            <h5 className='client_name'>Ernest Achiever</h5>
-            <small className='client_review'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem architecto fugit cumque harum maiores! Nesciunt molestiae ducimus non animi fugit iusto ratione eaque voluptatibus!
-            </small>
-          </div>
-        </article>
-
-        <article className='testimonial'>
-          <div className='client_avatar'>
-            <img src={AVTR3} alt="Avatar one" />
-            <h5 className='client_name'>Ernest Achiever</h5>
-            <small className='client_review'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem architecto fugit cumque harum maiores! Nesciunt molestiae ducimus non animi fugit iusto ratione eaque voluptatibus!
-            </small>
-          </div>
-        </article>
-
-        <article className='testimonial'>
-          <div className='client_avatar'>
-            <img src={AVTR4} alt="Avatar one" />
-            <h5 className='client_name'>Ernest Achiever</h5>
-            <small className='client_review'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem architecto fugit cumque harum maiores! Nesciunt molestiae ducimus non animi fugit iusto ratione eaque voluptatibus!
-            </small>
-          </div>
-        </article>
-      </div>
-
-      </section>
+          <h5 className='client_name'>{name}</h5>
+          <small className='client_review'>{review}</small>
+        </SwiperSlide>
+         )
+        })
+       }
+      </Swiper>
+    </section>
   )
 }
 
